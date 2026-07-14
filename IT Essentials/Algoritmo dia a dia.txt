@@ -1,0 +1,39 @@
+1. Inicio
+2. Me despierto
+3. Si son las 8 AM:
+   Encender la laptop del trabajo e iniciar mi labor
+4. Trabajar hasta las 5pm
+5. Después de las 5pm:
+   Apagar la laptop del trabajo
+   Buscar ropa de gimnasio
+   Ponerme ropa de gimnasio
+6. Encender mi carro y si tiene gasolina:
+   Ir al gimnasio en mi carro
+7. Sino, esperar por el carro de mi madre
+8. Tomar la ruta usual hacia el gimnasio
+9. Llegar al gimnasio
+10. Bajarme del carro y caminar hacia el gimnasio
+11. Ya dentro del gimnasio:
+
+Mientras no complete la rutina:
+i. Realizar ejercicios
+ii. Descansar entre series
+
+12. FinMientras
+13. Terminar de entrenar
+14. Dirigirme hacia el parqueo
+15. Ubicar mi carro
+16. Tomar la ruta hacia mi casa
+17. Llegar a mi casa
+18. Tomar una ducha
+19. Si hay comida preparada, calentarla en el microondas
+20. Sino:
+    Preparar comida
+21. Luego de comer, encender mi computadora de juegos
+22. Jugar
+23. Si son las 11pm:
+    Apagar la computadora de juegos
+    Lavarme los dientes
+24. Acostarme
+25. Dormir
+26. Fin

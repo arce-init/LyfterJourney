@@ -1,0 +1,11 @@
+1. Inicio
+2. Solicitar al usuario el precio del producto
+3. Leer precio
+4. Si precio < 100 Entonces
+   descuento = precio * 0.02
+   Sino
+   descuento = precio * 0.10
+   FinSi
+5. precioFinal = precio - descuento
+6. Mostrar "El precio final es: ", precioFinal
+7. Fin

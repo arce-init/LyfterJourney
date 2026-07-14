@@ -1,0 +1,11 @@
+1. Inicio
+
+2. Solicitar al usuario una velocidad en km/h
+
+3. Leer velocidadKm
+
+4. velocidadMs = velocidadKm / 3.6
+
+5. Mostrar "La velocidad en m/s es: ", velocidadMs
+
+6. Fin

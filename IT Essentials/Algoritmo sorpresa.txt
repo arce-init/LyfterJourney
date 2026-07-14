@@ -1,0 +1,37 @@
+1. Inicio
+2. Elegir la fecha y hora de la celebracion sorpresa
+3. Comprar decoraciones, comida y refrescos
+4. Invitar a los amigos 
+5. El día de la celebracion, decorar la casa
+6. Si la persona está en casa:
+   Esperar a que salga
+
+7. Sino:
+   Continuar con los preparativos
+
+8. Mientras los invitados no hayan llegado:
+   i. Organizar la comida
+   ii. Revisar la decoración
+   iii. Preparar el parlante para música
+
+9. FinMientras
+
+10. Cuando los invitados lleguen:
+    Recibirlos y pedir silencio
+
+11. Mientras la persona sorpresa no llegue:
+    i. Conversar con los invitados
+    ii. Mantener las luces apagadas
+
+12. FinMientras
+
+13. Cuando la persona llegue:
+    Gritar “Sorpresa”
+
+14. Comer, conversar y disfrutar de la celebracion
+
+15. Cuando la celebracion termine:
+    Despedir a los invitados
+    Limpiar la casa
+
+16. Fin

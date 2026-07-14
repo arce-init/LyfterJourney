@@ -1,0 +1,15 @@
+1. Inicio
+
+2. Solicitar al usuario un número
+
+3. Leer numero
+
+4. suma = 0
+
+5. Para i = 1 Hasta numero Hacer
+   suma = suma + i
+   FinPara
+
+6. Mostrar "La suma es: ", suma
+
+7. Fin

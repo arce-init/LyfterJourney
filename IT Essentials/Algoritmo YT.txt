@@ -1,0 +1,16 @@
+1. Inicio
+2. Si tiene una computadora:
+Enciendala
+Ingrese a un navegador web
+Ubique la barra de busqueda
+Ingrese a www.YouTube.com
+3. Sino, si tiene smartphone:
+Ingrese a la app de YouTube
+4.Sino tiene la app descargada:
+Ingrese al navegador web
+Ubique la barra de busqueda
+Ingrese a www.YouTube.com
+5. Dentro de YouTube ubique la barra de busqueda
+6. Busque el video que desea
+7. Seleccione el video
+8.Fin

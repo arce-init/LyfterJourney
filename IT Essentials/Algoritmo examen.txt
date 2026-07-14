@@ -1,0 +1,25 @@
+1. Inicio
+2. Revisar la fecha del examen
+3. Buscar apuntes, libros y materiales de estudio
+4. Elaborar un horario de estudio
+5. Estudiar la materia correspondiente
+6. Repasar los temas importantes
+7. Practicar ejercicios y ejemplos
+8. Si entiendo la materia:
+   Continuar con el siguiente tema
+
+9. Sino:
+   Buscar más información en linea
+   Preguntar dudas al profesor o compañeros
+
+10. Mientras no me sienta listo para el examen:
+    i. Estudiar nuevamente los apuntes
+    ii. Repasar conceptos importantes
+    iii. Resolver ejercicios de práctica
+    iv. Revisar dudas pendientes
+
+11. FinMientras
+12. Preparar los materiales necesarios para el examen
+13. Dormir temprano antes del examen
+14. Presentar el examen
+15. Fin

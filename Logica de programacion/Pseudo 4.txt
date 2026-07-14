@@ -1,0 +1,21 @@
+1. Inicio
+
+2. Solicitar el primer número
+
+3. Leer primero
+
+4. Solicitar el segundo número
+
+5. Leer segundo
+
+6. Si primero > segundo Entonces
+   temporal = primero
+   primero = segundo
+   segundo = temporal
+   FinSi
+
+7. Mostrar "Primero: ", primero
+
+8. Mostrar "Segundo: ", segundo
+
+9. Fin
