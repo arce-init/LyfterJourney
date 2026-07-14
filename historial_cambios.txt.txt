@@ -1,0 +1,7 @@
+Commit 1: "Initial commit"
+- Qué cambió: Se creó el repositorio con la estructura inicial
+- Por qué: Para comenzar a subir los ejercicios del curso a GitHub
+
+Commit 2: "Uploading first excercises"
+- Qué cambió: Se subieron los primeros ejercicios de Python
+- Por qué: Para guardar el progreso del módulo de Python básico en el repositorio
