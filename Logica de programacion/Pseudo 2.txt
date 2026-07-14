@@ -1,0 +1,18 @@
+1. Inicio
+
+2. Solicitar al usuario un tiempo en segundos
+
+3. Leer tiempo
+
+4. Si tiempo < 600 Entonces
+   faltan = 600 - tiempo
+   Mostrar faltan
+   Sino
+   Si tiempo > 600 Entonces
+   Mostrar "Mayor"
+   Sino
+   Mostrar "Igual"
+   FinSi
+   FinSi
+
+5. Fin

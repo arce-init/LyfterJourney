@@ -1,0 +1,29 @@
+1. Inicio
+
+2. mujeres = 0
+
+3. hombres = 0
+
+4. Para i = 1 Hasta 6 Hacer
+
+   Mostrar "Ingrese 1 si es mujer o 2 si es hombre"
+
+   Leer sexo
+
+   Si sexo = 1 Entonces
+   mujeres = mujeres + 1
+   Sino
+   hombres = hombres + 1
+   FinSi
+
+   FinPara
+
+5. porcentajeMujeres = (mujeres * 100) / 6
+
+6. porcentajeHombres = (hombres * 100) / 6
+
+7. Mostrar "Porcentaje de mujeres: ", porcentajeMujeres, "%"
+
+8. Mostrar "Porcentaje de hombres: ", porcentajeHombres, "%"
+
+9. Fin

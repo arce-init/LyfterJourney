@@ -1,0 +1,31 @@
+1. Inicio
+2. Pensar en el viaje que quiero hacer
+3. Revisar la fecha y hora de salida
+4. Buscar mi ropa y las cosas que voy a necesitar
+5. Empacar ropa cómoda, cargador, audífonos 
+6. Si el viaje es a un lugar frio:
+   Empacar Abrigo y ropa para el frio
+
+7. Sino:
+   Llevar ropa ligera y fresca
+
+8. Revisar si ya tengo todo listo
+9. Mientras todavía me falten cosas por empacar:
+   i. Revisar mi cuarto
+   ii. Buscar las cosas que faltan
+   iii. Guardarlas en la maleta
+
+10. FinMientras
+
+11. Revisar si el carro tiene gasolina o si ya tengo transporte
+12. Si no tengo transporte listo:
+    Buscar cómo llegar o pedir ayuda
+
+13. Antes de salir:
+    Comer algo
+    Revisar el celular
+    Avisarle a mi familia que ya voy saliendo
+
+14. Salir de mi casa y dirigirme al viaje
+15. Llegar al lugar y disfrutar el viaje
+16. Fin
