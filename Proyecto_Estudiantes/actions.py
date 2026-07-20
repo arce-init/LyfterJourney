@@ -44,7 +44,7 @@ def show_students(students):
         print(f"English: {student['english']}")
         print(f"Social: {student['social']}")
         print(f"Science: {student['science']}")
-        print(f"Average: {avg:2f}")
+        print(f"Average: {avg:.2f}")
 
 def show_top_3(students):
     if not students:
