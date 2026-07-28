@@ -4,13 +4,13 @@ class User(ABC):
     def __init__(self, name):
         self.name = name
 
-        @abstractmethod
-        def get_role(self):
-            pass
+    @abstractmethod
+    def get_role(self):
+        pass
 
-        @abstractmethod
-        def has_permission(self, permission):
-            pass
+    @abstractmethod
+    def has_permission(self, permission):
+        pass
 
 class AdminUser(User):
 
