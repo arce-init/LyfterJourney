@@ -5,6 +5,7 @@ class Node:
         self.next = next
         self.prev = prev
 
+
 class Deque:
 
     def __init__(self):
@@ -37,8 +38,7 @@ class Deque:
             self.head.prev = None
         else:
             self.tail = None
-
-            return removed_node.data
+        return removed_node.data
 
     def pop_right(self):
         if self.tail is None:
@@ -46,7 +46,7 @@ class Deque:
             return None
         removed_node = self.tail
         self.tail = removed_node.prev
-        if self.tail.next is not None:
+        if self.tail is not None:
             self.tail.next = None
         else:
             self.head = None
