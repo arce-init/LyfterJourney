@@ -1,0 +1,4 @@
+ReqRes API info:
+
+KEY: x-api-key
+VALUE: free_user_3K6pa8enIT87HbO3POZg2LsqtVv
