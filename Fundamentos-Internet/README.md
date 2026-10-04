@@ -77,91 +77,63 @@ GraphQL suele ser la opción más conveniente para un sistema de reservas en lí
 
 ### 4.1 Selección de la API
 
--
+- **Nombre de la API:** PokéAPI
+- **Descripción:** API RESTful pública y gratuita con información completa del universo Pokémon (estadísticas, tipos, habilidades, evoluciones). No requiere autenticación. Endpoint de ejemplo: `https://pokeapi.co/api/v2/pokemon/pikachu`.
 
-**
-Nombre de la API: PokéAPI
-
-**
--
-
-**
-Descripción: PokéAPI es una API RESTful pública y gratuita que ofrece información completa sobre el universo de Pokémon: datos de cada Pokémon (estadísticas, tipos, habilidades, movimientos, evoluciones), items, ubicaciones, generaciones de juegos, cadenas evolutivas, entre otros. No requiere autenticación ni token, lo que la hace ideal para practicar consultas HTTP y explorar el formato JSON de respuesta. Todas las peticiones son de tipo GET, y se accede mediante endpoints como:
-
-https://pokeapi.co/api/v2/pokemon/pikachu
-
-que devuelve toda la información disponible sobre ese Pokémon en formato JSON.
-
-**
-
-### 4.2 Configuración en Postman
-
-- **Nombre de la colección:** PokeAPI
-
-- **Solicitudes agregadas:**
-
-  - **GET** - "Obtener Pokemon": consulta el endpoint `{{base_url}}/pokemon/pikachu` (donde `base_url` = `https://pokeapi.co/api/v2`) y devuelve toda la información del Pokémon Pikachu (estadísticas, tipos, habilidades, etc.) en formato JSON, con respuesta `200 OK`.
-
-  - **POST** - "Crear recurso": envía una solicitud a `https://reqres.in/api/users` con un body en formato JSON (`{"name": "Ash", "job": "Entrenador Pokemon"}`) para simular la creación de un nuevo recurso. Incluye el header `x-api-key` con la API key gratuita obtenida en ReqRes. Devuelve `201 Created` junto con el recurso creado y su nuevo id.
-
-  - **PUT** - "Actualizar recurso": envía una solicitud a `https://reqres.in/api/users/2` con un body en formato JSON actualizado, para simular la modificación de un recurso existente. También incluye el header `x-api-key`. Devuelve `200 OK` con los datos actualizados.
-
-- **Variables de entorno (Environment "PokeAPI Env"):**
-  - `base_url` → `https://pokeapi.co/api/v2` (usada en la solicitud GET)
-  - `api_key` → la API key gratuita de ReqRes (usada en los headers de POST y PUT)
+- **Nombre de la API secundaria:** ReqRes
+- **Descripción:** PokéAPI solo soporta solicitudes GET, por lo que para cumplir con el requisito de incluir POST y PUT se utilizó ReqRes, una API pública diseñada para simular operaciones de creación y actualización de recursos. Requiere una API key gratuita (header `x-api-key`) debido a límites de uso del plan gratuito. Endpoint base: `https://reqres.in/api/users`.
 
 ### 4.3 Ejecución y análisis
 
-| Solicitud | Método | Endpoint | Código de estado | Notas |
-|-----------|--------|----------|-------------------|-------|
-| Obtener Pokemon | GET | `{{base_url}}/pokemon/pikachu` | 200 OK | Se obtuvo correctamente toda la información de Pikachu (estadísticas, tipos, habilidades) en formato JSON. No requiere autenticación. |
-| Crear recurso | POST | `https://reqres.in/api/users` | 201 Created | Se envió un body JSON con los datos de un nuevo usuario. ReqRes simuló la creación y devolvió el recurso con un id nuevo. Requirió el header `x-api-key` para evitar el error 429 (Too Many Requests) del plan gratuito. |
-| Actualizar recurso | PUT | `https://reqres.in/api/users/2` | 200 OK | Se envió un body JSON con datos actualizados. El servidor respondió confirmando la actualización del recurso, también usando el header `x-api-key`. |
-
-### 4.4 Explicación técnica
-
-Cada solicitud sigue el ciclo **request → proceso en servidor → response**, propio del protocolo HTTP:
-
-- **GET** se utiliza para *consultar* información sin modificar nada en el servidor. Es un método "seguro" e idempotente: ejecutarlo varias veces no cambia el estado de los datos. En este caso, el cliente (Postman) pidió los datos del Pokémon Pikachu y el servidor de PokéAPI respondió con el recurso solicitado.
-
-- **POST** se utiliza para *crear* un nuevo recurso en el servidor. A diferencia de GET, no es idempotente: cada vez que se ejecuta, en teoría se crea un recurso nuevo (por eso ReqRes devolvió un `id` distinto). El código `201 Created` confirma explícitamente que el recurso fue creado con éxito, a diferencia del `200 OK` genérico.
-
-- **PUT** se utiliza para *actualizar* un recurso existente, reemplazando sus datos. Es idempotente: ejecutarlo varias veces con el mismo body produce el mismo resultado final. El código `200 OK` indica que la actualización se procesó correctamente.
-
-- El **header `x-api-key`** fue necesario para las solicitudes a ReqRes porque esta API, en su plan gratuito, limita la cantidad de peticiones por minuto sin autenticación (lo que generó inicialmente el error `429 Too Many Requests`). Al incluir la key en los headers, el servidor identifica al cliente y le permite mayor cuota de uso.
-
-- Las **variables de entorno** (`base_url`, `api_key`) evitan repetir datos fijos en cada solicitud y facilitan cambiar de entorno (por ejemplo, de pruebas a producción) sin reescribir URLs o credenciales manualmente.
-
-En conjunto, este ejercicio demuestra el ciclo completo de comunicación entre cliente y servidor mediante una API REST: el cliente arma una solicitud con un método HTTP específico, el servidor la procesa según su lógica interna, y responde con un código de estado que indica el resultado de la operación.
-
-####
+| Solicitud | Método | Endpoint | Código de estado | Headers relevantes | Notas |
+|-----------|--------|----------|-------------------|---------------------|-------|
+| Obtener Pokemon | GET | `{{base_url}}/pokemon/pikachu` | 200 OK | `Content-Type: application/json; charset=utf-8` | Se obtuvo correctamente la información de Pikachu (id, estadísticas, tipos). No requiere autenticación. |
+| Crear recurso | POST | `{{reqres_url}}/users` | 201 Created | `Content-Type: application/json; charset=utf-8`, `X-Ratelimit-Limit: 250` | Se envió `{name, job}` y el servidor devolvió el recurso con `id` y `createdAt` generados. Requiere header `x-api-key`. |
+| Actualizar recurso | PUT | `{{reqres_url}}/users/2` | 200 OK | `Content-Type: application/json; charset=utf-8`, `X-Ratelimit-Limit: 250` | Se envió `{name, job}` actualizado; el servidor confirmó con `updatedAt`. Requiere header `x-api-key`. |
 
 ### 4.4 Explicación técnica
 
 #### Obtener Pokemon
 - **Método HTTP:** GET
 - **Endpoint:** `{{base_url}}/pokemon/pikachu`
-- **Parámetros / body:** No requiere body. No necesita autenticación.
-- **Descripción de la respuesta:** Devuelve un JSON con toda la información de Pikachu: id, nombre, altura, peso, tipos, habilidades, movimientos y estadísticas base. Código de estado `200 OK`.
+- **Parámetros / body:** No requiere body ni autenticación.
+- **Descripción de la respuesta:** Devuelve datos completos de Pikachu. Fragmento de ejemplo:
+```json
+{
+  "id": 25,
+  "name": "pikachu",
+  "base_experience": 112,
+  "types": [{ "type": { "name": "electric" } }]
+}
+```
 
 #### Crear recurso
 - **Método HTTP:** POST
-- **Endpoint:** `https://reqres.in/api/users`
-- **Parámetros / body:** Header `x-api-key` con la API key de ReqRes. Body JSON: `{"name": "Ash", "job": "Entrenador Pokemon"}`
-- **Descripción de la respuesta:** El servidor simula la creación de un nuevo usuario y devuelve el objeto enviado junto con un `id` generado automáticamente y una marca de tiempo `createdAt`. Código de estado `201 Created`.
+- **Endpoint:** `{{reqres_url}}/users`
+- **Parámetros / body:** Header `x-api-key: {{api_key}}`. Body: `{"name": "Ash", "job": "Entrenador Pokemon"}`
+- **Descripción de la respuesta:** El servidor crea el recurso y devuelve un `id` y `createdAt` generados automáticamente:
+```json
+{
+  "name": "Ash",
+  "job": "Entrenador Pokemon",
+  "id": "289",
+  "createdAt": "2026-10-04T20:42:13.885Z"
+}
+```
 
 #### Actualizar recurso
 - **Método HTTP:** PUT
-- **Endpoint:** `https://reqres.in/api/users/2`
-- **Parámetros / body:** Header `x-api-key` con la API key de ReqRes. Body JSON: `{"name": "Ash", "job": "Maestro Pokemon"}`
-- **Descripción de la respuesta:** El servidor confirma la actualización devolviendo los datos enviados junto con una marca de tiempo `updatedAt`. Código de estado `200 OK`.
+- **Endpoint:** `{{reqres_url}}/users/2`
+- **Parámetros / body:** Header `x-api-key: {{api_key}}`. Body: `{"name": "Ash", "job": "Maestro Pokemon"}`
+- **Descripción de la respuesta:** El servidor confirma la actualización con un `updatedAt`:
+```json
+{
+  "name": "Ash",
+  "job": "Maestro Pokemon",
+  "updatedAt": "2026-10-04T20:42:18.358Z"
+}
+```
 
 **¿Qué aprendiste del proceso?**
 
-Aprendí a diferenciar en la práctica los métodos HTTP más comunes (GET, POST, PUT) y cómo cada uno tiene un propósito y un comportamiento distinto (idempotencia, códigos de estado esperados). También entendí la importancia de los headers de autenticación (`x-api-key`) para controlar el acceso y los límites de uso de una API, y cómo las variables de entorno en Postman ayudan a mantener las solicitudes organizadas y reutilizables sin hardcodear URLs o credenciales.
-
-### 4.5 Reflexión final
-
-Este ejercicio me ayudó a entender que una API no es más que un conjunto de reglas y endpoints que permiten que dos sistemas se comuniquen de forma estructurada, sin que el cliente necesite saber cómo funciona internamente el servidor. Aprendí que cada método HTTP (GET, POST, PUT, DELETE) tiene un propósito claro y un comportamiento esperado (como la idempotencia), y que los códigos de estado (200, 201, 404, 429, etc.) son el lenguaje que usa el servidor para comunicar el resultado de cada operación, ya sea éxito, error o algún problema como un límite de peticiones excedido.
-
-Postman fue clave para hacer tangible algo que normalmente ocurre "detrás de cámaras" en una aplicación web: pude armar manualmente cada solicitud (eligiendo método, URL, headers y body) y ver en tiempo real la respuesta exacta que devolvía el servidor, incluyendo su código de estado y el JSON recibido. Esto me permitió visualizar con claridad el ciclo completo de **request → procesamiento en el servidor → response**, y entender por qué el frontend de una aplicación real nunca accede directamente a una base de datos, sino que siempre pasa por una API que valida, procesa y responde a cada petición.
+Aprendí a diferenciar en la práctica los métodos HTTP más comunes (GET, POST, PUT) y cómo cada uno tiene un propósito y comportamiento distinto (idempotencia, códigos de estado esperados). También entendí la importancia de los headers de autenticación (`x-api-key`) para controlar el acceso y los límites de uso de una API, la diferencia entre el "Initial value" y "Current value" de las variables en Postman (y por qué afecta lo que se exporta), y cómo las variables de entorno ayudan a mantener las solicitudes organizadas sin hardcodear URLs o credenciales directamente en cada petición.
