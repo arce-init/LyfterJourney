@@ -30,6 +30,17 @@ El servidor de YouTube recibe la petición, la procesa (autentica al usuario si 
 
 El cliente recibe la respuesta y empieza a interpretar el HTML/CSS/JS para construir la página, mientras el reproductor de video comienza a descargar y reproducir el contenido en fragmentos (streaming adaptativo), ajustando la calidad según el ancho de banda disponible, hasta que el video aparece en pantalla.
 
+```mermaid
+sequenceDiagram
+    participant Cliente as Navegador
+    participant DNS
+    participant Servidor as Servidor YouTube
+    Cliente->>DNS: Solicita IP de youtube.com
+    DNS-->>Cliente: Responde con IP
+    Cliente->>Servidor: GET /video via HTTPS
+    Servidor-->>Cliente: 200 OK mas contenido
+```
+
 ## 2. Frontend y Backend en acción
 
 Frontend (lo que ve y usa el paciente/médico):
